@@ -35,7 +35,7 @@ RUN apt-get update && \
 ENV LANG=ja_JP.UTF-8
 
 RUN echo "PYTHONIOENCODING=utf-8" >> /etc/bash.bashrc && \
-    echo "export PS1='\[\033[01;32m\]trandy-sercher@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /etc/bash.bashrc
+    echo "export PS1='\[\033[01;32m\]cooking-gpt@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /etc/bash.bashrc
 
 RUN pip3 install \
         setuptools \
@@ -71,6 +71,8 @@ RUN groupadd -g $GID $username && \
 
 # RUN wget https://www.slimjet.com/chrome/download-chrome.php?file=files%2F104.0.5112.102%2Fgoogle-chrome-stable_current_amd64.deb
 # RUN dpkg -i google-chrome-stable_current_amd64.deb
+
+# chrome関連のやつ
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     fonts-liberation \
@@ -86,11 +88,9 @@ RUN apt-get update && \
     libnss3 \
     libpango-1.0-0 \
     libxcomposite1 \
-    xdg-utils
-
+    xdg-util
 RUN wget https://www.slimjet.com/chrome/download-chrome.php?file=files%2F104.0.5112.102%2Fgoogle-chrome-stable_current_amd64.deb -O google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb
-
 # chrome driverのインストール
 RUN wget https://chromedriver.storage.googleapis.com/104.0.5112.79/chromedriver_linux64.zip \
     && unzip chromedriver_linux64.zip -d /usr/local/bin/ \
