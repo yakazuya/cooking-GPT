@@ -3,7 +3,7 @@
 BUILD_DIR=$(dirname $(readlink -f $0))/src
 USER_ID=$(id -u)
 
-IMAGE_NAME="cooking-GPT:ubuntu2004"
+IMAGE_NAME="cooking-gpt:ubuntu2004"
 
 docker build \
   -t ${IMAGE_NAME} \
