@@ -12,7 +12,9 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y \
     sudo \
     wget \
-    nano
+    nano && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -88,7 +90,9 @@ RUN apt-get update && \
     libnss3 \
     libpango-1.0-0 \
     libxcomposite1 \
-    xdg-util
+    xdg-utils && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 RUN wget https://www.slimjet.com/chrome/download-chrome.php?file=files%2F104.0.5112.102%2Fgoogle-chrome-stable_current_amd64.deb -O google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb
 # chrome driverのインストール
