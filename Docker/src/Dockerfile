@@ -54,7 +54,10 @@ RUN pip3 install \
     selenium==4.2.0 \
     beautifulsoup4==4.12.2 \
     webdriver_manager==3.8.6
-    
+
+# GPTを使用するためのモジュール
+RUN pip3 install \
+    openai
 
 # userの設定
 ARG username=cooking-GPT
