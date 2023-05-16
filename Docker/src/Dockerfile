@@ -51,7 +51,7 @@ RUN pip3 install \
     rembg 
 
 # YOLOのモデルを使用するためのモジュール
-RUN pip3 install ultratics
+RUN pip3 install ultralytics
 
 # DeepLを用いるためのモジュール
 RUN pip3 install \
