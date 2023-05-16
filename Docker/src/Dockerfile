@@ -49,6 +49,10 @@ RUN pip3 install \
     opencv-python==4.7.0.72 \
     numpy==1.23.5 \
     rembg 
+
+# YOLOのモデルを使用するためのモジュール
+RUN pip3 install ultratics
+
 # DeepLを用いるためのモジュール
 RUN pip3 install \
     selenium==4.2.0 \
