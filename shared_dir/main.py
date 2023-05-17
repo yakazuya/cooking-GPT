@@ -64,7 +64,6 @@ def uploaded_file(filename):
 def predict(filename:str) -> str:
     # YOLOに入力
     food_list = yolo(filename)
-    
     # chat-GPTに入力
     text = gpt(food_list)
 
@@ -73,9 +72,10 @@ def predict(filename:str) -> str:
     引数    : 翻訳したいテキスト, 翻訳したいテキストの言語, 翻訳する言語
     返り値  : 翻訳されたテキスト
     """
-    translate_text = translate(text, 'en', 'ja')
+    # translate_text = translate(text, 'en', 'ja')
 
-    return translate_text
+    # return translate_text
+    return text
 
 
 if __name__ == '__main__':
