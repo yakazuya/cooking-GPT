@@ -32,10 +32,10 @@ def gpt(food_list:list) -> str:
 
 
 
-def yolo(img:np.array) -> list:
+def yolo(img_path:str) -> list:
     model = YOLO('./runs/detect/train3/weights/last.pt')
     # model("sample.png",save=True, conf=0.2, iou=0.5)
-    results = model("sample.png",save=False, conf=0.2, iou=0.5)
+    results = model(img_path,save=False, conf=0.2, iou=0.5)
     names = results[0].names
     vegetables_list=[]
     for value in names.values():
