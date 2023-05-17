@@ -62,6 +62,10 @@ RUN pip3 install \
 # GPTを使用するためのモジュール
 RUN pip3 install \
     openai
+    
+# WebAppの作成に用いるモジュール
+RUN pip3 install \
+    flask
 
 # userの設定
 ARG username=cooking-GPT
