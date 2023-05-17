@@ -5,9 +5,8 @@
 
 
 import os
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from werkzeug.utils import secure_filename
-from flask import send_from_directory
 import numpy as np
 import cv2
 from modules.total_function import translate,yolo,gpt
@@ -41,21 +40,7 @@ def upload_file():
             return predict(file_path)
 
 
-    return '''
-    <!doctype html>
-    <html>
-    <head>
-    <meta charset="UTF-8">
-    <title>cookGPT</title></head>
-    <body>
-    <h1>ファイルをアップロード</h1>
-    <form method = post enctype = multipart/form-data>
-    <p><input type=file name=file>
-    <input type=submit value=Upload>
-    </form>
-    </body>
-    </html>
-    '''
+    return render_template('home.html')
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
@@ -72,10 +57,10 @@ def predict(filename:str) -> str:
     引数    : 翻訳したいテキスト, 翻訳したいテキストの言語, 翻訳する言語
     返り値  : 翻訳されたテキスト
     """
-    # translate_text = translate(text, 'en', 'ja')
+    translate_text = translate(text, 'en', 'ja')
 
     # return translate_text
-    return text
+    return translate_text
 
 
 if __name__ == '__main__':

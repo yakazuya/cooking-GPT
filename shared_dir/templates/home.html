@@ -1,0 +1,17 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cooking-GPT</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Cooking-GPT</h1>
+        <h2>ファイルをアップロード</h2>
+        <form method = post enctype = multipart/form-data>
+            <p><input type=file name=file>
+            <input type=submit value=Upload>
+        </form>
+    </body>
+</html>

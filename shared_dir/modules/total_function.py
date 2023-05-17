@@ -65,7 +65,7 @@ def translate(text:str, from_lang:str, to_lang:str) -> str:
 
     #2023/04/21
     # output = ".lmt__textarea_container .lmt__inner_textarea_container d-textarea"
-    output_selector = '#target-dummydiv'
+    output_selector = 'd-textarea.lmt__textarea.lmt__target_textarea.lmt__textarea_base_style.focus-visible-disabled-container'
     Outputtext = driver.find_element_by_css_selector(output_selector).get_attribute("textContent")
 
     return Outputtext
