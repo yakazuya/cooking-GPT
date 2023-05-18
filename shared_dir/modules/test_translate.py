@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
+import re
 # seleniumとchoromDriverでDeepLにアクセス
 from_lang = 'en'
 to_lang = 'ja'
@@ -24,7 +25,7 @@ time.sleep(5)
 # output = ".lmt__textarea_container .lmt__inner_textarea_container d-textarea"
 output_selector = 'd-textarea.lmt__textarea.lmt__target_textarea.lmt__textarea_base_style.focus-visible-disabled-container'
 Outputtext = driver.find_element_by_css_selector(output_selector).get_attribute("textContent")
-print('')
-print('')
-print(f'input : {text}')
+# print('')
+# print('')
+# print(f'input : {text}')
 print(f'output : {Outputtext}')

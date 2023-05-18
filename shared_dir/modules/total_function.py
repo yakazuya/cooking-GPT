@@ -4,6 +4,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 import openai
+import re
+
+import torch
+from diffusers import StableDiffusionPipeline
 
 from modules.api_key import API_KEY,ORGANIZATION_KEY
 
@@ -12,12 +16,13 @@ def gpt(food_list:list) -> str:
     openai.api_key = API_KEY
     
     if len(food_list) == 1:
-        connect_text:str = 'Please tell me the name and process of cooking with ' \
-                                + f'{food_list[-1]}'
+        connect_text:str = f'Please tell me what dishes can be made from {food_list[-1]}.' \
+                                'list format,the first show the name of the dish and then write the process.'
     else:
-        connect_text:str = 'Please tell me the name and process of cooking with ' \
+        connect_text:str = f'Please tell me what dishes can be made from ' \
                                 + ', '.join(food_list[:len(food_list)-1])  \
-                                        + f' and {food_list[-1]}'
+                                        + f' and {food_list[-1]}.' \
+                                            + 'list format,the first show the name of the dish and then write the process.'
     
     response = openai.Completion.create(
         engine='text-davinci-003',
@@ -67,5 +72,37 @@ def translate(text:str, from_lang:str, to_lang:str) -> str:
     # output = ".lmt__textarea_container .lmt__inner_textarea_container d-textarea"
     output_selector = 'd-textarea.lmt__textarea.lmt__target_textarea.lmt__textarea_base_style.focus-visible-disabled-container'
     Outputtext = driver.find_element_by_css_selector(output_selector).get_attribute("textContent")
-
+    
     return Outputtext
+
+def dishes_select(response,sug) -> list:
+    '''GPTからの料理名を受け取るリストの作成'''
+    
+    pattern = re.compile(pattern=r'\d+.\s*(.*?):')
+    
+    text_list:list = pattern.findall(response)
+    
+    recipe_list :list = list()
+    for match in text_list:
+        recipe_name = match.strip()
+        recipe_list.append(recipe_name)
+        
+    if sug > len(recipe_list):
+        sug = len(recipe_list)
+    
+    return recipe_list[:sug]
+
+def image(dish_list: list) -> dict:
+    # PIL形式
+    model_id = "CompVis/stable-diffusion-v1-4"
+    device = "cuda"
+    # インスタンス化とcudaに転送
+    pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+    pipe = pipe.to(device)
+    img_dict = {}
+    for dish in dish_list:
+        prompt = "a photo of an " + dish
+        # 多分画像生成してるところ
+        img_dict[dish] = pipe(prompt).images[0]
+    
+    return img_dict

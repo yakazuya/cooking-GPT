@@ -9,7 +9,7 @@ from flask import Flask, request, redirect, url_for, render_template, send_from_
 from werkzeug.utils import secure_filename
 import numpy as np
 import cv2
-from modules.total_function import translate,yolo,gpt
+from modules.total_function import translate,yolo,gpt,dishes_select,image
 
 
 UPLOAD_FOLDER = './uploads'
@@ -51,6 +51,15 @@ def predict(filename:str) -> str:
     food_list = yolo(filename)
     # chat-GPTに入力
     text = gpt(food_list)
+    
+    sug = 10
+    
+    dishes_list: list = dishes_select(text,sug)
+
+    img_dict: dict = image(dishes_list)
+
+    for i, dish in enumerate(dishes_list):
+        img_dict[dish].save(f"{i}.png")
 
     # DeepLに入力
     """
@@ -60,7 +69,7 @@ def predict(filename:str) -> str:
     translate_text = translate(text, 'en', 'ja')
 
     # return translate_text
-    return translate_text
+    return img_dict,translate_text
 
 
 if __name__ == '__main__':
