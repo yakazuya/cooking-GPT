@@ -67,6 +67,12 @@ RUN pip3 install \
 RUN pip3 install \
     flask
 
+# stable_diffusionのためのモジュール
+RUN pip3 install \
+    diffusers==0.16.1 \
+    transformers==4.29.2 \
+    scipy==1.10.1
+
 # userの設定
 ARG username=cooking-GPT
 ARG wkdir=/home
