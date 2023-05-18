@@ -36,8 +36,9 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             # return redirect(url_for('uploaded_file', filename=filename))
+            num = request.form.get('num')  # numの値を取得
 
-            return predict(file_path)
+            return predict(file_path, num)
 
 
     return render_template('home.html')
@@ -46,9 +47,10 @@ def upload_file():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-def predict(filename:str) -> str:
+def predict(filename:str, num:str) -> str:
     # YOLOに入力
-    food_list = yolo(filename)
+    # food_list = yolo(filename)
+    food_list = ['tomato','green pepper']
     # chat-GPTに入力
     text = gpt(food_list)
     
