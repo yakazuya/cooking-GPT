@@ -8,13 +8,13 @@ HOST_WS=$(dirname $(dirname $(readlink -f $0)))/shared_dir
 
 DOCKER_VOLUME="-v ${XSOCK}:${XSOCK}:rw"
 DOCKER_VOLUME="${DOCKER_VOLUME} -v ${XAUTH}:${XAUTH}:rw"
-DOCKER_VOLUME="${DOCKER_VOLUME} -v ${HOST_WS}:/home/shared_dir:rw"
+DOCKER_VOLUME="${DOCKER_VOLUME} -v ${HOST_WS}:/home/cooking-GPT:rw"
 
 DOCKER_ENV="-e XAUTHORITY=${XAUTH}"
 DOCKER_ENV="${DOCKER_ENV} -e DISPLAY=$DISPLAY"
 DOCKER_ENV="${DOCKER_ENV} -e QT_X11_NO_MITSHM=1"
 DOCKER_ENV="${DOCKER_ENV} -e USER_ID=${USER_ID}"
-DOCKER_ENV="${DOCKER_ENV} -e HOME=/home/shared_dir"
+DOCKER_ENV="${DOCKER_ENV} -e HOME=/home/cooking-GPT"
 IMAGE_NAME="cooking-gpt:ubuntu2004"
 
 DOCKER_IMAGE="${IMAGE_NAME}"
@@ -27,7 +27,7 @@ docker run \
   --name ubuntu \
   --net "host" \
   --shm-size 10gb \
-  --user root \
+  --user cooking-GPT \
   ${DOCKER_ENV} \
   ${DOCKER_VOLUME} \
   ${DOCKER_IMAGE} \

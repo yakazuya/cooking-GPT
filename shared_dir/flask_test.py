@@ -9,7 +9,7 @@ from flask import Flask, request, redirect, url_for, render_template, send_from_
 from werkzeug.utils import secure_filename
 import numpy as np
 import cv2
-from modules.total_function import translate,yolo,gpt,dishes_select,image
+from modules.total_function import *
 
 
 UPLOAD_FOLDER = './uploads'
@@ -22,7 +22,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/', methods=['GET', 'POST'])
-def upload_file():
+def front():
     return render_template('front.html')
 
 @app.route('/home', methods=['GET', 'POST'])
