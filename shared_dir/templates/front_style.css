@@ -109,20 +109,20 @@ use
   
 
 /*-------------------------------------------
-diveroppers
+Developer
 -------------------------------------------*/
-#diveroppers {
+#Developer {
     padding: 20px;
     background-color: #f2f2f2;
 }
-#diveroppers .section-title{
+#Developer .section-title{
     margin-bottom: 5px;
     text-align: center;
     font-size: 50px;
     text-decoration: underline
 }
 
-#diveroppers img{
+#Developer img{
     width: 80px;
     height: 80px;
     object-fit: cover;
