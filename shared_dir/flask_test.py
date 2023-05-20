@@ -9,7 +9,7 @@ from flask import Flask, request, redirect, url_for, render_template, send_from_
 from werkzeug.utils import secure_filename
 import numpy as np
 import cv2
-from modules.total_function import translate,yolo,gpt,dishes_select,image
+from modules.total_function import *
 
 
 UPLOAD_FOLDER = './uploads'

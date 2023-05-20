@@ -75,7 +75,7 @@ RUN pip3 install \
 
 # userの設定
 ARG username=cooking-GPT
-ARG wkdir=/home
+ARG wkdir=/home/cooking-GPT
 ARG UID=1000
 ARG GID=1000
 RUN groupadd -g $GID $username && \
