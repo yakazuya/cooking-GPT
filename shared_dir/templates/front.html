@@ -7,20 +7,24 @@
         <!-- 、異なる画面サイズを持つさまざまなデバイスでWebページが正しく表示される -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- webアイコンを指定 -->
-        <link rel="icon" href="../img1/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="images/cook_hat.ico">
         <!-- <link rel="stylesheet" href="{{ url_for('static', filename='front_style.css') }}"> -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='front_style.css') }}">
+        <link rel="stylesheet" href="front_style.css">
     </head>
 
     <body>
         <header id="header" class="wrapper">
             <!-- alt属性：画像が表示されない場合の代わりのテキスト -->
-            <h1 class="site-title"><a href="front.html"><img src="../img1/logo.svg" alt="Profile"></a></h1>
+            <h1 class="site-title">
+                <a href="front.html">
+                    <img src="images/cook_hat.ico" alt="CookingGPT" style="width: 32px; height: 32px;">
+                </a>
+            </h1>
             <!-- ナビゲーションメニュー -->
             <nav>
                 <!-- リスト形式で表示 -->
                 <ul>
-                    <li><a href="#use">How to uses</a></li>
+                    <li><a href="#How2use">How to use</a></li>
                     <li><a href="/home">use</a></li>
                     <li><a href="#diveroppers">diveroppers</a></li>
                 </ul>
@@ -29,35 +33,59 @@
 
         <main>
             <div id="mainvisiual">
-                <img src="../img1/mainvisual.jpg" alt="メインビジュアル">
+                <!-- <img src="../images/mainvisual.png" alt="メインビジュアル"> -->
+                <img src="images/logo.png" alt="logo">
+                <img src="images/For_you.png" alt="For you">
+                <img src="images/None.png" alt="No Image">
             </div>
-            <section id="use">
+            <section id="How2use">
                 <div class="text">
                     <h1>
-                        <span class="en">How to use</span>
+                        <span class="en">How to use</span><br>
                         <span class="ja">使い方</span>
                     </h1>
-                    <p>このサイトは、私たちのプロフィールを紹介するサイトです。</p>
+                    <p>Cooking-GPTの使い方を説明します</p>
+                    <ol>
+                      <li>手順 1: サイト右上のuseもしくは<a href="/home">こちら</a>をクリック</li>
+                      <img src="images/where_use.png" alt="No image">
+                      <li>手順 2: 表示する料理数を選択(最大5個)</li>
+                      <img src="images/num_choice.png" alt="No image">
+                      <li>手順 3: ファイルを選択</li>
+                      <img src="images/img_choice.png" alt="No image">
+                      <li>手順 4: uploadを選択</li>
+                    </ol>
                 </div>
-            <!-- HTML文書内のセクション(特定の範囲や領域)を示す -->
             <section id="diveroppers" class="wrapper">
-                <h2 class="section-title">Diveroppers</h2>
-                <div class="content">
-                    <img src="img1/about.jpg" alt="自己紹介(HIGASHI DAIJIRO)">
-                    <div class="HIGASHI">
-                        <h3 class="content-title"> HIGASHI DAIJIRO</h3>
-                        <p>現在ニート30年目</p>
-                    </div>
-                    <img src="../img1/about.jpg" alt="自己紹介(TOKUDA KOUSUKE)">
-                    <div class="TOKUDA">
-                        <h3 class="content-title"> TOKUDA KOUSUKE</h3>
-                        <p>1998年生まれ。大学卒業後、IT企業に就職。現在はWebエンジニアとして活動中。</p>
-                    </div>
-                    <img src="../img1/about.jpg" alt="自己紹介(YABASHI KAZUYA)">
-                    <div class="YABASHI">
-                        <h3 class="content-title"> YABASHI KAZUYA</h3>
-                        <p>1998年生まれ。大学卒業後、IT企業に就職。現在はWebエンジニアとして活動中。</p>
-                    </div>
+                <h1 class="section-title">Diveroppers</h1>
+                <div class="content">                      
+                        <div class="item">
+                          <img src="images/higashi_profile.png" alt="No Image">
+                          <div class="text">
+                            <a href="https://github.com/higash1">
+                                <h3 class="content-title">HIGASHI DAIJIRO</h3>
+                            </a>
+                            <p>ニート生活30年目</p>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="images/tokuda_profile.png" alt="No Image">
+                          <div class="text">
+                            <a href="https://github.com/mutokuda">
+                                <h3 class="content-title">TOKUDA KOSUKE</h3>
+                            </a>
+                            <p>睡眠は甘え</p>
+                          </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/yabashi_profile.png" alt="No Image">
+                            <div class="text">
+                                    <a href="https://github.com/yabashikazuya">
+                                        <h3 class="content-title">YABASHI KAZUYA</h3>
+                                    </a>
+                                <p>労基に駆け込みたい</p>
+                            </div>
+                        </div>
+                      </div>                
                 </div>
         </main>
     <footer id="footer">
