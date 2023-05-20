@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+html{
+    font-size: 100%;
+}
+
+body {
+    color: #383e45;
+    font-size: 0.9rem;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+li {
+    list-style: none;
+}
+.site-title {
+    width: 120px;
+    line-height: 1px;
+    padding: 10px 0;
+  }
+.site-title a {
+    display: block;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    background: red;
+}
+
+#header ul {
+    display: flex;
+    padding: 10px 0;
+    background: blue;
+}
+#header li{
+    margin-left: 30px;
+    background: green;
+}
+#header li a{
+    color: #24282e;
+}
+#header li a:hover {
+    opacity: 0.7;
+  }
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual{
+    margin-bottom: 80px;
+}
+#mainvisual img {
+    width: 100%;
+    max-width: 1920px;
+    height: 600px;
+    object-fit: cover;
+}
+
+/*-------------------------------------------
+diveroppers
+-------------------------------------------*/
+#diveroppers .section-title{
+    margin-bottom: 5px;
+}
+#diveroppers .content{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+#diveroppers img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+#diveroppers .content-title{
+    font-size: 20px;
+    white-space: nowrap;
+}
+#diveroppers .HIGASHI {
+    text-align: left;
+    margin-right: 10px;
+    font-size: 15px;
+}
+#diveroppers .TOKUDA {
+    text-align: left;
+    margin-right: 10px;
+    font-size: 15px;
+}
+#diveroppers .YABASHI {
+    text-align: left;
+    margin-right: 10px;
+    font-size: 15px;
+  }
+
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+#footer {
+    font-size: 0.5rem;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 600px){
+  /*-------------------------------------------
+  Mainvisual
+  -------------------------------------------*/
+  #mainvisual img {
+    height: calc(100vh - 60px);
+  }
+  /*-------------------------------------------
+  About
+  -------------------------------------------*/
+  #about .content {
+    flex-direction: column;
+  }
+  #about img {
+    margin-right: 0;
+  }
+}

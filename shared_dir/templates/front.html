@@ -7,20 +7,21 @@
         <!-- 、異なる画面サイズを持つさまざまなデバイスでWebページが正しく表示される -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- webアイコンを指定 -->
-        <link rel="icon" href="img1/favicon.ico">
-        <link rel="stylesheet" href="../static/front_style.css">
+        <link rel="icon" href="../img1/favicon.ico">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='front_style.css') }}"> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='front_style.css') }}">
     </head>
 
     <body>
         <header id="header" class="wrapper">
             <!-- alt属性：画像が表示されない場合の代わりのテキスト -->
-            <h1 class="site-title"><a href="front.html"><img src="img1/logo.svg" alt="Profile"></a></h1>
+            <h1 class="site-title"><a href="front.html"><img src="../img1/logo.svg" alt="Profile"></a></h1>
             <!-- ナビゲーションメニュー -->
             <nav>
                 <!-- リスト形式で表示 -->
                 <ul>
                     <li><a href="#use">How to uses</a></li>
-                    <li><a href="home.html">use</a></li>
+                    <li><a href="/home">use</a></li>
                     <li><a href="#diveroppers">diveroppers</a></li>
                 </ul>
             </nav>
@@ -28,7 +29,7 @@
 
         <main>
             <div id="mainvisiual">
-                <img src="img1/mainvisual.jpg" alt="メインビジュアル">
+                <img src="../img1/mainvisual.jpg" alt="メインビジュアル">
             </div>
             <section id="use">
                 <div class="text">
@@ -45,14 +46,14 @@
                     <img src="img1/about.jpg" alt="自己紹介(HIGASHI DAIJIRO)">
                     <div class="HIGASHI">
                         <h3 class="content-title"> HIGASHI DAIJIRO</h3>
-                        <p>1998年生まれ。大学卒業後、IT企業に就職。現在はWebエンジニアとして活動中。</p>
+                        <p>現在ニート30年目</p>
                     </div>
-                    <img src="img1/about.jpg" alt="自己紹介(TOKUDA KOUSUKE)">
+                    <img src="../img1/about.jpg" alt="自己紹介(TOKUDA KOUSUKE)">
                     <div class="TOKUDA">
                         <h3 class="content-title"> TOKUDA KOUSUKE</h3>
                         <p>1998年生まれ。大学卒業後、IT企業に就職。現在はWebエンジニアとして活動中。</p>
                     </div>
-                    <img src="img1/about.jpg" alt="自己紹介(YABASHI KAZUYA)">
+                    <img src="../img1/about.jpg" alt="自己紹介(YABASHI KAZUYA)">
                     <div class="YABASHI">
                         <h3 class="content-title"> YABASHI KAZUYA</h3>
                         <p>1998年生まれ。大学卒業後、IT企業に就職。現在はWebエンジニアとして活動中。</p>

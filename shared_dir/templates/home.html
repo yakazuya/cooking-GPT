@@ -1,17 +1,56 @@
-
 <!doctype html>
-<html>
+<html lang="ja">
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="content-type" charset="UTF-8">
         <title>Cooking-GPT</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <!-- <link rel="stylesheet" hred="style2.css?=210424"> -->
+        <script>
+            function previewImage(event) {
+                var preview = document.querySelector('.preview');
+                var file = event.target.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function() {
+                    preview.src = reader.result;
+                };
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    preview.src = "";
+                }
+            }
+        </script>
     </head>
     <body>
         <h1>Cooking-GPT</h1>
-        <h2>ファイルをアップロード</h2>
-        <form method = post enctype = multipart/form-data>
-            <p><input type=file name=file>
-            <input type=submit value=Upload>
+        <h2>食材の写真をアップロードしてください</h2>
+        <form method="post" enctype="multipart/form-data">
+            <div id="config">
+                <p>
+                    <label>表示する料理数：
+                        <select name="num" required>
+                            <option value="">選択してください</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </label>
+                </p>
+                <div class="file">
+                    <!-- <input type="file" name="file"> -->
+                    <input type="file" name="file" onchange="previewImage(event)">
+                </div>
+                <div class="Upload">
+                    <input type="submit" value="Upload">
+                </div>
+            </div>
         </form>
+        <div>
+            <img class="preview" src="" alt="Preview">
+        </div>
     </body>
 </html>
