@@ -34,5 +34,6 @@ python3 main.py
 ・ubuntu22.04
 
 ## Collaborators
-[@higash1](https://github.com/higash1)
-[@mutokuda](https://github.com/mutokuda)
+・[@higash1](https://github.com/higash1)
+
+・[@mutokuda](https://github.com/mutokuda)
