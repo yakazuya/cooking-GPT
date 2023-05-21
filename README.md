@@ -1,7 +1,29 @@
 # cooking-GPT
 
+## Setup
+初めにこのレポジトリをクローンしてください
+```sh
+git clone https://github.com/yabashikazuya/cooking-GPT.git
 ```
+
+dockerのbuildを行います
+```sh
+cd cooking-GPT/docker
+./build.sh
+```
+
+## 実行方法
+1. dockerに入ります
+```sh
+cd ~/VisionTransformer/docker
+./run.sh
+```
+2. 以下を実行することで学習を行うことができます
+```sh
 python3 main.py
 ```
-あとはwebブラウザで`http://localhost:5000`にとぶだけ。
+あとはwebブラウザで`http://localhost:5000`にとぶだけです。
 アップロードした画像はuploadsの中に入ります。
+
+## テスト環境
+・ubuntu22.04
