@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+html{
+    font-size: 100%;
+}
+
+body {
+    color: #383e45;
+    font-size: 0.9rem;
+}
+img {
+    max-width: 100%;
+}
+li {
+    list-style: none;
+}
+.site-title {
+    width: 120px;
+    line-height: 1px;
+    padding: 10px 0;
+  }
+.site-title a {
+    display: block;
+    text-decoration: none;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    height: 60px;
+    background: rgb(202, 227, 202);
+}
+
+#header .site-title a{
+    margin-left: 15px;
+}
+#header ul {
+    display: flex;
+    padding: 10px 0;
+}
+#header li{
+    margin-left: 10px;
+}
+#header li a{
+    color: #24282e;
+    font-size: 20px;
+    margin-right: 15px;
+}
+#header li a:hover {
+    opacity: 0.6;
+  }
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual{
+    margin-bottom: 80px;
+}
+#mainvisual img {
+    width: 100%;
+    /* max-width: 1920px; */
+    /* height: 600px; */
+    object-fit: cover;
+}
+/*-------------------------------------------
+use
+-------------------------------------------*/
+
+#How2use {
+    /* margin-bottom: 30px; */
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+ #How2use .text {
+    text-align: center;
+  }
+  
+
+  #How2use li {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  span.en {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 50px;
+  }
+  
+  /* 日本語のテキストのスタイル */
+  span.ja {
+    font-weight: bold;
+    font-size: 40px;
+    color: #555;
+  }
+  
+  /* 段落のスタイル */
+  p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #777;
+  }
+  
+
+/*-------------------------------------------
+Developer
+-------------------------------------------*/
+#Developer {
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+#Developer .section-title{
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 50px;
+    text-decoration: underline
+}
+
+#Developer img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.content div {
+  text-align: center;
+  margin: 10px;
+}
+
+/* user container */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.content .item {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    margin-bottom: 5px;
+}
+
+.content img {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.content .text {
+    flex: 1;
+}
+
+.content .content-title {
+    font-size: 30px;
+    margin-bottom: 1px;
+}
+
+.content p {
+    font-size: 24px;
+    color: #777;
+}
+.content a {
+    text-decoration: none;
+}
+  
+
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+#footer {
+    font-size: 1rem;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 600px){
+  /*-------------------------------------------
+  Mainvisual
+  -------------------------------------------*/
+  #mainvisual img {
+    height: calc(100vh - 60px);
+  }
+  /*-------------------------------------------
+  About
+  -------------------------------------------*/
+  #about .content {
+    flex-direction: column;
+  }
+  #about img {
+    margin-right: 0;
+  }
+}

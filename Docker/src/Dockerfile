@@ -49,16 +49,33 @@ RUN pip3 install \
     opencv-python==4.7.0.72 \
     numpy==1.23.5 \
     rembg 
+
+# YOLOのモデルを使用するためのモジュール
+RUN pip3 install ultralytics
+
 # DeepLを用いるためのモジュール
 RUN pip3 install \
     selenium==4.2.0 \
     beautifulsoup4==4.12.2 \
     webdriver_manager==3.8.6
+
+# GPTを使用するためのモジュール
+RUN pip3 install \
+    openai
     
+# WebAppの作成に用いるモジュール
+RUN pip3 install \
+    flask
+
+# stable_diffusionのためのモジュール
+RUN pip3 install \
+    diffusers==0.16.1 \
+    transformers==4.29.2 \
+    scipy==1.10.1
 
 # userの設定
 ARG username=cooking-GPT
-ARG wkdir=/home
+ARG wkdir=/home/cooking-GPT
 ARG UID=1000
 ARG GID=1000
 RUN groupadd -g $GID $username && \
