@@ -14,15 +14,17 @@ from modules.api_key import API_KEY,ORGANIZATION_KEY
 def gpt(food_list:list) -> str:
     openai.organization = ORGANIZATION_KEY
     openai.api_key = API_KEY
-    
+
+
     if len(food_list) == 1:
-        connect_text:str = f'Please tell me what dishes can be made from {food_list[-1]}.' \
-                                'list format,the first show the name of the dish and then write the process.'
+        connect_text:str = f'Please tell me what dishes can be made using only {food_list[-1]}.' \
+                                'Please display in the order of: number, dish name, colon, space, and description. And please do not include line breaks between the sentences.'
     else:
-        connect_text:str = f'Please tell me what dishes can be made from ' \
+        connect_text:str = f'Please tell me what dishes can be made using only' \
                                 + ', '.join(food_list[:len(food_list)-1])  \
                                         + f' and {food_list[-1]}.' \
-                                            + 'list format,the first show the name of the dish and then write the process.'
+                                            + 'Please display in the order of: number, dish name, colon, space, and description. And please do not include line breaks between the sentences.'
+    
     
     response = openai.Completion.create(
         engine='text-davinci-003',
@@ -38,13 +40,17 @@ def gpt(food_list:list) -> str:
 
 
 def yolo(img_path:str) -> list:
-    model = YOLO('./model/green_pepper.pt')
+    model = YOLO('./model/best.pt')
     # model("sample.png",save=True, conf=0.2, iou=0.5)
-    results = model(img_path,save=False, conf=0.2, iou=0.5)
+    results = model(img_path,save=True, conf=0.9, iou=0.5)
     names = results[0].names
     vegetables_list=[]
     for value in names.values():
-        vegetables_list.append(value)
+        if results[1] > 0.9:
+            if value == 'poteto':
+                value = 'potato'
+            vegetables_list.append(value)
+    # print(vegetables_list)
     return vegetables_list
 
 
@@ -87,22 +93,42 @@ def dishes_select(response,sug) -> list:
         recipe_name = match.strip()
         recipe_list.append(recipe_name)
         
+    text = " ".join(response.split("\n"))
+    
+    description_list = list()
+    for recipe in recipe_list[:sug]:
+        pattern = re.compile(pattern=fr'{recipe}\:\s(.+?)\d+\.')
+        description = pattern.findall(text)
+        description_list.append(description[0])
+        
+        
     if sug > len(recipe_list):
         sug = len(recipe_list)
     
-    return recipe_list[:sug]
+    return recipe_list[:sug],description_list
 
-def image(dish_list: list) -> dict:
+def image(dish_list: list,text_list:list) -> list:
     # PIL形式
     model_id = "CompVis/stable-diffusion-v1-4"
     device = "cuda"
     # インスタンス化とcudaに転送
     pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
     pipe = pipe.to(device)
-    img_dict = {}
-    for dish in dish_list:
+    img_list = []
+    for i, dish in enumerate(dish_list):
         prompt = "a photo of an " + dish
         # 多分画像生成してるところ
-        img_dict[dish] = pipe(prompt).images[0]
+        image = pipe(prompt).images[0]  
+        image.save(f"./static/images/{i}.png")
+        img_list.append(f'static/images/{i}.png')
     
-    return img_dict
+    return img_list
+
+def molding(dish_translate, discription_translate, img_list):
+    dict = {}
+    for key, discription, img in zip(dish_translate, discription_translate, img_list):
+        dict[key]={}
+        dict[key]['description'] = discription
+        dict[key]['img_url'] = img
+    
+    return dict
