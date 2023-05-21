@@ -33,7 +33,7 @@ python3 main.py
 ## テスト環境
 ・ubuntu22.04
 
-## Collaborators
+## Contributor
 ・[@higash1](https://github.com/higash1)
 
 ・[@mutokuda](https://github.com/mutokuda)
