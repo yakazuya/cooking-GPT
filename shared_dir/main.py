@@ -65,14 +65,14 @@ def predict(filename:str, num:str) -> str:
     food_list = yolo(filename)
     # food_list = ['tomato','green pepper']
     # # chat-GPTに入力
-    text = gpt(food_list)
+    # text = gpt(food_list)
     # print(text)
     
-    # text = '1. Potato and Carrot Mash: Boil the potatoes and carrots until soft. Mash together with butter, salt, pepper, and garlic.' \
-    #         + '2. Potato and Carrot Fritters: Grate the potatoes and carrots and mix with an egg, flour, salt, and pepper. Form into patties and pan-fry until golden.' \
-    #          + '3. Roasted Potato and Carrot Salad: Cut the potatoes and carrots into cubes and toss with olive oil, salt, and pepper. Roast in a preheated oven at 400°F until tender. Serve with a dressing of your choice over a bed of greens. ' \
-    #           + '4. Potato and Carrot Soup: Sauté onions and garlic in a pot. Add the potatoes and carrots and cook until softened. Add stock and simmer until vegetables are cooked through. Blend until smooth. ' \
-    #            + '5. Baked Potato and Carrot Chips: Thinly slice potatoes and carrots and toss with olive oil, salt, and pepper. Bake in a preheated oven at 400°F for 20-25 minutes, flipping halfway through.'
+    text = '1. Potato and Carrot Mash: Boil the potatoes and carrots until soft. Mash together with butter, salt, pepper, and garlic.' \
+            + '2. Potato and Carrot Fritters: Grate the potatoes and carrots and mix with an egg, flour, salt, and pepper. Form into patties and pan-fry until golden.' \
+             + '3. Roasted Potato and Carrot Salad: Cut the potatoes and carrots into cubes and toss with olive oil, salt, and pepper. Roast in a preheated oven at 400°F until tender. Serve with a dressing of your choice over a bed of greens. ' \
+              + '4. Potato and Carrot Soup: Sauté onions and garlic in a pot. Add the potatoes and carrots and cook until softened. Add stock and simmer until vegetables are cooked through. Blend until smooth. ' \
+               + '5. Baked Potato and Carrot Chips: Thinly slice potatoes and carrots and toss with olive oil, salt, and pepper. Bake in a preheated oven at 400°F for 20-25 minutes, flipping halfway through.'
     # text = '1.Stuffed Peppers: Stuff hollowed-out green peppers with a mixture of diced tomatoes, cooked rice, onion, garlic and herbs.' \
     #             '2.Tomato Soup: Simmer tomatoes, green peppers, onion, garlic, and a variety of herbs and spices in a pot of vegetable broth.' \
     #                 '3.Tomato and Pepper Sauté: Sauté chopped tomatoes, peppers, onion, garlic, and herbs in olive oil until vegetables are softened.' \
