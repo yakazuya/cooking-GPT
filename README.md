@@ -1,5 +1,10 @@
 # cooking-GPT
 
+## Samples
+![fig1](./images/cooking-GPT.gif )
+
+### result
+![fig1](./images/result.png )
 ## Setup
 初めにこのレポジトリをクローンしてください
 ```sh
