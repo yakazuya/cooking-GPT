@@ -46,9 +46,9 @@ def yolo(img_path:str) -> list:
     names = results[0].names
     vegetables_list=[]
     for value in names.values():
-        if results[1] > 0.9:
-            if value == 'poteto':
-                value = 'potato'
+#         if results[1] > 0.9:
+#             if value == 'poteto':
+#                 value = 'potato'
             vegetables_list.append(value)
     # print(vegetables_list)
     return vegetables_list
