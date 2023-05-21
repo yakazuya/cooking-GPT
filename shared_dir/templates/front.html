@@ -7,9 +7,9 @@
         <!-- 、異なる画面サイズを持つさまざまなデバイスでWebページが正しく表示される -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- webアイコンを指定 -->
-        <link rel="icon" type="image/x-icon" href="images/cook_hat.ico">
+        <link rel="icon" type="image/x-icon" href="static/ico/cook_hat.ico">
         <!-- <link rel="stylesheet" href="{{ url_for('static', filename='front_style.css') }}"> -->
-        <link rel="stylesheet" href="front_style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='front_style.css') }}">
     </head>
 
     <body>
@@ -17,7 +17,7 @@
             <!-- alt属性：画像が表示されない場合の代わりのテキスト -->
             <h1 class="site-title">
                 <a href="front.html">
-                    <img src="images/cook_hat.ico" alt="CookingGPT" style="width: 32px; height: 32px;">
+                    <img src="static/ico/cook_hat.ico" alt="CookingGPT" style="width: 32px; height: 32px;">
                 </a>
             </h1>
             <!-- ナビゲーションメニュー -->
@@ -34,10 +34,10 @@
         <main>
             <div id="mainvisiual">
                 <!-- <img src="../images/mainvisual.png" alt="メインビジュアル"> -->
-                <img src="images/None.png" alt="No Image">
-                <img src="images/logo.png" alt="logo">
-                <img src="images/For_you.png" alt="For you">
-                <img src="images/None.png" alt="No Image">
+                <img src="static/images/None.png" alt="No Image">
+                <img src="static/images/logo.png" alt="logo">
+                <img src="static/images/For_you.png" alt="For you">
+                <img src="static/images/None.png" alt="No Image">
             </div>
             <section id="How2use">
                 <div class="text">
@@ -48,24 +48,24 @@
                     <p>Cooking-GPTの使い方を説明します</p>
                     <ol>
                       <li>手順 1: サイト右上のuseもしくは<a href="/home">こちら</a>をクリック</li>
-                      <img src="images/where_use.png" alt="No image">
+                      <img src="static/images/where_use.png" alt="No image">
                       <li>手順 2: 表示する料理数を選択(最大5個)</li>
-                      <img src="images/num_choice.png" alt="No image">
+                      <img src="static/images/num_choice.png" alt="No image">
                       <li>手順 3: ファイルを選択</li>
-                      <img src="images/img_choice.png" alt="No image">
+                      <img src="static/images/img_choice.png" alt="No image">
                       <li>手順 3: uploadを選択</li>
-                      <img src="images/upload_bottan.png" alt="No image">
+                      <img src="static/images/upload_bottan.png" alt="No image">
                       <li>手順 4: Wait a few sec</li>
-                      <img src="images/loading.gif" alt="No image" sytle="mergin-bottom: 10px; mergin-top: 20px;">
+                      <img src="static/images/loading.gif" alt="No image" sytle="mergin-bottom: 10px; mergin-top: 20px;">
                       <li>手順 5: result画面が表示されます</li>
-                      <img src="images/result.png" alt="No image">
+                      <img src="static/images/result.png" alt="No image">
                     </ol>
                 </div>
             <section id="Developer" class="wrapper">
                 <h1 class="section-title">Developer</h1>
                 <div class="content">                      
                         <div class="item">
-                          <img src="images/higashi_profile.png" alt="No Image">
+                          <img src="static/images/higashi_profile.png" alt="No Image">
                           <div class="text">
                             <a href="https://github.com/higash1">
                                 <h3 class="content-title">DAIJIRO HIGASHI</h3>
@@ -74,7 +74,7 @@
                           </div>
                         </div>
                         <div class="item">
-                          <img src="images/tokuda_profile.png" alt="No Image">
+                          <img src="static/images/tokuda_profile.png" alt="No Image">
                           <div class="text">
                             <a href="https://github.com/mutokuda">
                                 <h3 class="content-title">KOSUKE TOKUDA</h3>
@@ -83,7 +83,7 @@
                           </div>
                         </div>
                         <div class="item">
-                            <img src="images/yabashi_profile.png" alt="No Image">
+                            <img src="static/images/yabashi_profile.png" alt="No Image">
                             <div class="text">
                                     <a href="https://github.com/yabashikazuya">
                                         <h3 class="content-title">KAZUYA YABASHI</h3>
