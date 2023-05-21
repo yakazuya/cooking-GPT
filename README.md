@@ -20,7 +20,7 @@ cd cooking-GPT/docker
 ## 実行方法
 1. dockerに入ります
 ```sh
-cd ~/VisionTransformer/docker
+cd ~/cooking-GPT/docker
 ./run.sh
 ```
 2. 以下を実行することで学習を行うことができます
