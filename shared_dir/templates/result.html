@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta http-equiv="content-type" charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+        <title>cooking-GPT</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+        <link rel="icon" href="static/ico/cook_hat.ico" >
+        <!-- <a href="/process"></a> -->
+        <!-- <link rel="stylesheet" > -->
+    </head>
+    <body>
+        <main>
+            <h1 class="title">
+                <img src="static/ico/cook_hat.ico" style="width: 32px; height: 32px;" class="icon">
+                Cooking-GPT
+                <img src="static/ico/cook_hat.ico" style="width: 32px; height: 32px;" class="icon">
+            </h1>
+            <h2>こちらの料理はいかがですか?</h2>
+            <!-- {% for key,value in data.items() %} -->
+            <div class="container">
+                <div class="box">
+                    <div class="image-wrapper">
+                        <img src="{{ value['img_url'] }}">
+                        <!-- <img src="../modules/0.png" alt="None Image"> -->
+                    </div> 
+                    <div class="content-wrapper">
+                        <h3>{{ key }}</h3>
+                        <!-- <h3>ピーマンの肉詰め</h3> -->
+                        <p>{{ value['description'] }}</p>
+                        <!-- <p>こうやってこうやってこうやって作ります</p> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="img"><img src="../static/image/1.png" alt="None"></div> -->
+                <!-- <div class="dish">ピーマンの肉詰め</div> -->
+                        <!-- <div class="description">こうやってこうやってこうやって作ります</div> -->
+                <!-- {% endfor %} -->
+        </main>
+    </body>
+</html>
