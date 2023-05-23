@@ -41,17 +41,14 @@ def gpt(food_list:list) -> str:
 
 def yolo(img_path:str) -> list:
     model = YOLO('./model/best.pt')
-    # model("sample.png",save=True, conf=0.2, iou=0.5)
-    results = model(img_path,save=True, conf=0.9, iou=0.5)
+    results = model(img_path,save=True,conf=0.2, iou=0.5)
     names = results[0].names
-    print(names,results[0])
+    classes = results[0].boxes.cls
+    names= [ names[int(cls)] for cls in classes] 
+
     vegetables_list=[]
     for value in names.values():
-#         if results[1] > 0.9:
-#             if value == 'poteto':
-#                 value = 'potato'
         vegetables_list.append(value)
-    # print(vegetables_list)
     return vegetables_list
 
 
