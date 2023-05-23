@@ -11,6 +11,8 @@
 git clone https://github.com/yabashikazuya/cooking-GPT.git
 ```
 
+shared_dir/modulesにあるapy_key.pyに自分のopenAIのapikeyを入力します
+
 dockerのbuildを行います
 ```sh
 cd cooking-GPT/docker
