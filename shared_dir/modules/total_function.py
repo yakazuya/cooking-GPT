@@ -114,7 +114,7 @@ def image(dish_list: list,text_list:list) -> list:
     pipe = pipe.to(device)
     img_list = []
     for i, dish in enumerate(dish_list):
-        prompt = "a photo of an " + dish
+        prompt = "a photo of " + dish +f' is made by {text_list[i]}'
         # 多分画像生成してるところ
         image = pipe(prompt).images[0]  
         image.save(f"./static/images/{i}.png")
