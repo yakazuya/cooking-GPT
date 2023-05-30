@@ -1,4 +1,7 @@
 # cooking-GPT
+## Slide
+[google slide](https://docs.google.com/presentation/d/1QRioxU_DZO62ucU4HYKtcXWjA3XuZ01cO_aFyc2hgcA/edit?usp=sharing)
+
 
 ## Samples
 ![fig1](./images/cooking-GPT.gif )
